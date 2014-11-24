@@ -1,0 +1,45 @@
+﻿@model IEnumerable<appGuild.Domain.Entities.Character>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>All characters</h2>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Points
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Id
+        </td>
+        <td>
+            @Html.ActionLink(item.Name, "Edit", new { item.Id })
+        </td>
+        <td>
+            @item.Points.ToString("c")
+        </td>
+        <td>
+            @using (Html.BeginForm("Delete", "Admin"))
+            {
+                @Html.Hidden("Id", item.Id)
+                <input class="btn btn-default" type="submit" value="Delete" />
+            }
+        </td>
+    </tr>
+}
+
+</table>
+<p>@Html.ActionLink("Add a new character", "Create")</p>

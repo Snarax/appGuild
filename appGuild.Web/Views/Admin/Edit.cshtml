@@ -1,0 +1,15 @@
+﻿@model appGuild.Domain.Entities.Character
+
+@{
+    ViewBag.Title = "Admin: Edit " + @Model.Name;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit @Model.Name</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <input class="btn btn-default" type="submit" value="Save" />
+    @Html.ActionLink("Cancel and return to List", "Index")
+}

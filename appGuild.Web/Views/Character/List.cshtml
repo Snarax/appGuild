@@ -1,0 +1,14 @@
+﻿@model appGuild.Web.Models.CharactersViewModel
+
+
+@{
+    Layout = null;
+}
+
+@foreach (var character in Model.Characters)
+{
+    @:Id: 
+    @character.Id
+    @:Name: 
+    @character.Name; <br/>
+}
