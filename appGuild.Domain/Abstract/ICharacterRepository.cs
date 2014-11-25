@@ -12,5 +12,6 @@ namespace appGuild.Domain.Abstract
     {
         IQueryable<Character> Characters { get; }
         void SaveCharacter(Character character);
+        void DeleteCharacter(Character character);
     }
 }

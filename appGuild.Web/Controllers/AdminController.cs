@@ -48,5 +48,18 @@ namespace appGuild.Web.Controllers
         {
             return View("Edit", new Character());
         }
+
+        [HttpPost]
+        public ActionResult Delete(int Id)
+        {
+            Character character = repository.Characters.FirstOrDefault(p => p.Id == Id);
+
+            if (character != null)
+            {
+                repository.DeleteCharacter(character);
+                TempData["message"] = string.Format("{0} was deleted", character.Name);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

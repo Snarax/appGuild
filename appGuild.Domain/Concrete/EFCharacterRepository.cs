@@ -25,5 +25,11 @@ namespace appGuild.Domain.Concrete
             }
             context.SaveChanges();
         }
+
+        public void DeleteCharacter(Character character)
+        {
+            context.Characters.Remove(character);
+            context.SaveChanges();
+        }
     }
 }
