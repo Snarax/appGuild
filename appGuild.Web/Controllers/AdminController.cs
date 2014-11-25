@@ -43,5 +43,10 @@ namespace appGuild.Web.Controllers
                 return View(character);
             }
         }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Character());
+        }
     }
 }
